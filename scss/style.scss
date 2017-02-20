@@ -37,7 +37,6 @@ section {
 }
 
 .playerNum {
-  border: 1px solid red;
   position: relative;
   height: 367px;
   width: 367px;
@@ -65,11 +64,14 @@ section {
     }
     .number4 {
       bottom: 105px;
-      right: 115px;
+      right: -65px;
       
     }
   }
   .triangle1 {
+    position: absolute;
+    top: 0;
+    left: 0;
     display: inline-block;
 	border-bottom: 180px solid #00DFFC;
 	border-left: 180px solid transparent;
@@ -100,8 +102,15 @@ section {
 	border-top: 180px solid #00DFFC;
 	border-right: 180px solid transparent;
   }
+  //TU COŚ JEST NIE TAK ! z tym divem nr 1 co ucieka
+  .rectangle {
+    background-color: aqua;
+    position: absolute;
+    border-top: 0px;
+    border-right: 0px;
+    height: 180px;
+  }
 }
 
 
-.rectangle {
-}
+
