@@ -1,0 +1,107 @@
+@import "modules/_variables.scss";
+@import "modules/_mixin.scss";
+
+header {
+  font-size: 24px;
+  color: beige;
+  line-height: 40px;
+  height: 40px;
+  width: 100%;
+  background-color: #005F6B;
+  .container {
+    margin: 0 auto;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    }
+  span {
+    display: flex;
+    align-self: center;
+    color: beige;
+    font-size: 24px;
+  }
+}
+
+section {
+  padding-top: 100px;
+  background-color: #343838;
+  height: 94vh;
+}
+
+.name {
+  margin: 0 auto;
+  width: 50vw;
+  text-align: center;
+  color: #00DFFC;
+  font-size: 70px;
+}
+
+.playerNum {
+  border: 1px solid red;
+  position: relative;
+  height: 367px;
+  width: 367px;
+  margin: 35px auto;
+  
+  .triangle {
+	width: 0;
+	height: 0;
+    .number {
+      position: absolute;
+      color: #343838;
+      font-size: 50px;
+    }
+    .number1 { 
+      top: 105px;
+      left: 115px;
+    }
+    .number2 {
+      top: 105px;
+      right: -65px;
+    }
+    .number3 {
+      bottom: 105px;
+      left: -65px;
+    }
+    .number4 {
+      bottom: 105px;
+      right: 115px;
+      
+    }
+  }
+  .triangle1 {
+    display: inline-block;
+	border-bottom: 180px solid #00DFFC;
+	border-left: 180px solid transparent;
+  }
+
+  .triangle2 {
+    position: absolute;
+    right: 0;
+    display: inline-block;
+	border-bottom: 180px solid #00B4CC;
+	border-right: 180px solid transparent;
+  }
+
+  .triangle3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+	border-top: 180px solid #00B4CC;
+	border-left: 180px solid transparent;
+  }
+
+  .triangle4 {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: inline-block;
+	border-top: 180px solid #00DFFC;
+	border-right: 180px solid transparent;
+  }
+}
+
+
+.rectangle {
+}
