@@ -7,7 +7,8 @@ $(function(){
   tr1.hover(function(){
     tr1.addClass("rectangle");
     tr1.removeClass("triangle1");
-    tr1.animate({width: "360px", left:"-180px"}, 1000);
+    tr1.animate({width: "360px"}, 1000);
+    tr1.css("left", "-180px");
   });
   
   tr2.hover(function(){
