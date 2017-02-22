@@ -4,6 +4,7 @@ $(function(){
   var tr2 = $('.triangle2');
   var tr3 = $('.triangle3');
   var tr4 = $('.triangle4');
+  var name = $('.name');
   
   $('div.hidden').fadeIn(3000).removeClass('hidden');
   
@@ -44,10 +45,16 @@ $(function(){
   
   //Tu jest kod do gry
   
-  var name = $('.name');
+  var nameGame = $('.nameGame');
   var field = $('.col-1');
   var button = $('.changePlayer');
   var href = $('a');
+  var body = $('.game');
+  
+  nameGame.animate({'font-size': '50px', 'opacity': 1}, 3000);
+  body.fadeIn(1000);
+  
+  
   
   button.on('click',function(e){
     e.preventDefault();
