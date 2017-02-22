@@ -42,7 +42,7 @@
   height: 25%;
 }
 
-.a9, .a10, .b9, .b10, .c9, .c10, .d9, .d10 {
+.p2 {
   color: beige;
   background-color: #00B4CC;
 }
@@ -73,6 +73,14 @@
 .changePlayer:hover {
   box-shadow: 0 0 15px black;
   background-color: #604848;
+}
+
+.p1Chose:hover {
+  background-color: #FFABAB;
+}
+
+.p2Chose:hover {
+  background-color: #94CED6;
 }
 
 

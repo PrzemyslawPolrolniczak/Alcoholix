@@ -51,7 +51,7 @@ $(function(){
   
   button.on('click',function(e){
     e.preventDefault();
-    if (button.hasClass("player1")) {
+    if (button.hasClass('player1')) {
       button.removeClass('player1');
       button.addClass('player2');
       button.text('Gracz 2');
@@ -60,6 +60,42 @@ $(function(){
       button.addClass('player1');
       button.text('Gracz 1');
     }
+    
+    if (button.hasClass('player1')) {
+      field.hover(function() {
+        if ($(this).hasClass('p1') == false) {
+          $(this).addClass('p1Chose');
+          $(this).removeClass('p2Chose');
+        } else {
+          $(this).removeClass('p1Chose');
+          $(this).removeClass('p2Chose');
+        }
+        $(this).on('click', function(){
+          $(this).addClass('p1');
+          $(this).removeClass('p2');
+        });
+      });
+      
+    } else if (button.hasClass('player2')) {
+      field.hover(function() {
+        if ($(this).hasClass('p2') == false) {
+          $(this).addClass('p2Chose');
+          $(this).removeClass('p1Chose');
+        } else {
+          $(this).removeClass('p1Chose');
+          $(this).removeClass('p2Chose');
+        }
+        $(this).on('click', function(){
+          $(this).addClass('p2');
+          $(this).removeClass('p1');
+        });
+      });
+    };
   });
+  
+  
+  
+  
+  
   
 });
