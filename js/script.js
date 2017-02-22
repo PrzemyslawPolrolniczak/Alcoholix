@@ -1,9 +1,9 @@
 $(function(){
+  //Tu jest kod do menu
   var tr1 = $('.triangle1');
   var tr2 = $('.triangle2');
   var tr3 = $('.triangle3');
   var tr4 = $('.triangle4');
-  var name = $('.name');
   
   $('div.hidden').fadeIn(3000).removeClass('hidden');
   
@@ -40,6 +40,26 @@ $(function(){
     tr4.text('');
     tr4.animate({'opacity': 0}, 50, function () { tr4.css('width', "360px"),
     tr4.text('4 Graczy');}).animate({'opacity': 1}, 1000);
+  });
+  
+  //Tu jest kod do gry
+  
+  var name = $('.name');
+  var field = $('.col-1');
+  var button = $('.changePlayer');
+  var href = $('a');
+  
+  button.on('click',function(e){
+    e.preventDefault();
+    if (button.hasClass("player1")) {
+      button.removeClass('player1');
+      button.addClass('player2');
+      button.text('Gracz 2');
+    } else if (button.hasClass('player2')) {
+      button.removeClass('player2');
+      button.addClass('player1');
+      button.text('Gracz 1');
+    }
   });
   
 });

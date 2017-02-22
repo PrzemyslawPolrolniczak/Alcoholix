@@ -4,6 +4,77 @@
 @import "partials/menu.scss";
 
 
+.nameGame {
+  position: relative;
+  height: 15vh;
+  line-height: 15vh;
+  text-align: center;
+  font-size: 40px;
+  color: #604848;
+  font-weight: 900;
+}
+
+.col-1 {
+  color: #604848;
+  background-color: #F0F0D8;
+  height: 100%;
+  width: 10%;
+  border: 1px dashed #607848;
+  display: inline-block;
+  font-weight: 900;
+}
+
+.board {
+  margin: 0 auto;
+  width: 1200px;
+  height: 500px;
+  border: 2px solid #607848;
+}
+
+
+.game {
+  background-color: #C0D860;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  height: 25%;
+}
+
+.a9, .a10, .b9, .b10, .c9, .c10, .d9, .d10 {
+  color: beige;
+  background-color: #00B4CC;
+}
+
+.p1 {
+  color: beige;
+  background-color: #FF5959;
+}
+
+.col-1:hover {
+  box-shadow: 0 0 10px black inset;
+}
+
+.changePlayer {
+  position: absolute;
+  left: 42vw;
+  top: 92vh;
+  height: 40px;
+  line-height: 35px;
+  font-size: 30px;
+  width: 200px;
+  text-align: center;
+  background-color: #789048;
+  box-shadow: 0 0 2px green;
+  color: beige;
+}
+
+.changePlayer:hover {
+  box-shadow: 0 0 15px black;
+  background-color: #604848;
+}
+
 
 
 
