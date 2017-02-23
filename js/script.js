@@ -50,14 +50,33 @@ $(function(){
   var button = $('.changePlayer');
   var href = $('a');
   var body = $('.game');
+  var board = $('.board');
+  var player2 = $('.player2');
+  var player = 0;
   
   nameGame.animate({'font-size': '50px', 'opacity': 1}, 3000);
-  body.fadeIn(1000);
+  board.fadeIn(1000);
+  player2.fadeIn(1000);
   
   
-  
+  //guzik zmiany gracza
   button.on('click',function(e){
+    
     e.preventDefault();
+    if (player == 0 || player == 2) {
+      player = 1;
+      button.text('Gracz 1');
+      console.log('Player 1');
+    } else if (player == 1) {
+      player = 2;
+      button.text('Gracz 2');
+      console.log('Player 2');
+    }
+   
+  });
+    
+    
+    /*
     if (button.hasClass('player1')) {
       button.removeClass('player1');
       button.addClass('player2');
@@ -66,9 +85,86 @@ $(function(){
       button.removeClass('player2');
       button.addClass('player1');
       button.text('Gracz 1');
+    } else {
+      button.addClass('player1');
     }
+  }); */
+
+  //mechanika gry dla gracza 1
+  
+   field.on('mouseover', function() {
+        console.log('hoverplayer2');
+     
+        if(player == 2){
+          if ($(this).hasClass('p2') == false) {
+            $(this).addClass('p2Chose');
+            $(this).removeClass('p1Chose');
+          } else {
+            $(this).removeClass('p1Chose');
+            $(this).removeClass('p2Chose');
+          }
+        }
+        
+        if (player == 1){
+            if ($(this).hasClass('p1') == false) {
+              $(this).addClass('p1Chose');
+              $(this).removeClass('p2Chose');
+            } else {
+              $(this).removeClass('p1Chose');
+              $(this).removeClass('p2Chose');
+            }
+        }
+   });
+  
     
-    if (button.hasClass('player1')) {
+  
+  /*
+        //wyświetlenie diva z zadaniem
+      field.on('click', function(){
+        var this1 = $(this);
+        $('.question').css('display', "block");
+        $('.questionText').css('display', "block");
+          
+          //w przypadku wykonania zadania
+        $('.yes').on('click', function(a){
+          console.log('1');
+          this1.removeClass('p2');
+          this1.addClass('p1');
+          $('.question').css('display', "none");
+          $('.questionText').css('display', "none");      
+        });
+          
+          //w przypadku niewykonania zadania
+        $('.no').on('click', function(b){
+          console.log('2');
+          this1.removeClass('p1');
+          this1.addClass('p2');
+          $('.question').css('display', "none");
+          $('.questionText').css('display', "none"); 
+        });
+      });
+    
+        
+        //zaznaczenie diva
+        $(this).on('click', function(){
+          $(this).addClass('p2');
+          $(this).removeClass('p1');
+        });
+      });
+  
+    };
+ 
+  */
+  
+  
+  
+  
+  
+});
+
+
+/*
+if (button.hasClass('player1')) {
       field.hover(function() {
         if ($(this).hasClass('p1') == false) {
           $(this).addClass('p1Chose');
@@ -82,7 +178,6 @@ $(function(){
           $(this).removeClass('p2');
         });
       });
-      
     } else if (button.hasClass('player2')) {
       field.hover(function() {
         if ($(this).hasClass('p2') == false) {
@@ -99,10 +194,5 @@ $(function(){
       });
     };
   });
+  */
   
-  
-  
-  
-  
-  
-});
