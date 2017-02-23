@@ -53,6 +53,7 @@ $(function(){
   var board = $('.board');
   var player2 = $('.player2');
   var player = 0;
+  var thisField = null;
   
   nameGame.animate({'font-size': '50px', 'opacity': 1}, 3000);
   board.fadeIn(1000);
@@ -72,25 +73,9 @@ $(function(){
       button.text('Gracz 2');
       console.log('Player 2');
     }
-   
-  });
+  });  
     
-    
-    /*
-    if (button.hasClass('player1')) {
-      button.removeClass('player1');
-      button.addClass('player2');
-      button.text('Gracz 2');
-    } else if (button.hasClass('player2')) {
-      button.removeClass('player2');
-      button.addClass('player1');
-      button.text('Gracz 1');
-    } else {
-      button.addClass('player1');
-    }
-  }); */
-
-  //mechanika gry dla gracza 1
+  //mechanika podświetlania
   
    field.on('mouseover', function() {
         console.log('hoverplayer2');
@@ -116,83 +101,55 @@ $(function(){
         }
    });
   
-    
-  
-  /*
-        //wyświetlenie diva z zadaniem
-      field.on('click', function(){
-        var this1 = $(this);
-        $('.question').css('display', "block");
-        $('.questionText').css('display', "block");
-          
-          //w przypadku wykonania zadania
-        $('.yes').on('click', function(a){
-          console.log('1');
-          this1.removeClass('p2');
-          this1.addClass('p1');
-          $('.question').css('display', "none");
-          $('.questionText').css('display', "none");      
-        });
-          
-          //w przypadku niewykonania zadania
-        $('.no').on('click', function(b){
-          console.log('2');
-          this1.removeClass('p1');
-          this1.addClass('p2');
-          $('.question').css('display', "none");
-          $('.questionText').css('display', "none"); 
-        });
-      });
-    
-        
-        //zaznaczenie diva
-        $(this).on('click', function(){
-          $(this).addClass('p2');
-          $(this).removeClass('p1');
-        });
-      });
-  
-    };
  
-  */
   
-  
-  
-  
-  
-});
-
-
-/*
-if (button.hasClass('player1')) {
-      field.hover(function() {
-        if ($(this).hasClass('p1') == false) {
-          $(this).addClass('p1Chose');
-          $(this).removeClass('p2Chose');
-        } else {
-          $(this).removeClass('p1Chose');
-          $(this).removeClass('p2Chose');
-        }
-        $(this).on('click', function(){
-          $(this).addClass('p1');
-          $(this).removeClass('p2');
-        });
-      });
-    } else if (button.hasClass('player2')) {
-      field.hover(function() {
-        if ($(this).hasClass('p2') == false) {
-          $(this).addClass('p2Chose');
-          $(this).removeClass('p1Chose');
-        } else {
-          $(this).removeClass('p1Chose');
-          $(this).removeClass('p2Chose');
-        }
-        $(this).on('click', function(){
-          $(this).addClass('p2');
-          $(this).removeClass('p1');
-        });
-      });
-    };
+  field.on('click', function(){
+    thisField = $(this);
+    if (player != 0 && thisField.hasClass('p1') == false && thisField.hasClass('p2') == false ) {
+      var random = Math.floor(Math.random() * $('.questionContent').length);
+      $('.questionContent').hide().eq(random).show();
+      $('.question').css('display', "block");
+      $('.questionText').css('display', "block");
+    } else if (player == 1 && thisField.hasClass('p2')){
+      thisField.removeClass('p2');
+      thisField.addClass('p1');
+    } else if (player == 2 && thisField.hasClass('p1')){
+      thisField.removeClass('p1');
+      thisField.addClass('p2');
+    }
   });
-  */
+  
+  $('.yes').on('click', function(a){
+    if(player == 1) {
+      thisField.removeClass('p2');
+      thisField.addClass('p1');
+      $('.question').css('display', "none");
+      $('.questionText').css('display', "none");
+    } else if(player == 2) {
+      thisField.removeClass('p1');
+      thisField.addClass('p2');
+      $('.question').css('display', "none");
+      $('.questionText').css('display', "none");
+    }
+  });
+
+  $('.no').on('click', function(b){
+    if(player == 1) {
+      thisField.removeClass('p1');
+      thisField.addClass('p2');
+      $('.question').css('display', "none");
+      $('.questionText').css('display', "none"); 
+    } else if (player == 2) {
+      thisField.removeClass('p2');
+      thisField.addClass('p1');
+      $('.question').css('display', "none");
+      $('.questionText').css('display', "none");
+    }
+  });
+  
+  //randomowo pokazujemy diva z kontentem
+  
+
+
+});
   
