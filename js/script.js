@@ -101,13 +101,16 @@ $(function(){
         }
    });
   
- 
+  var random = null;
+  var chosenQuestion = null;
   
   field.on('click', function(){
     thisField = $(this);
     if (player != 0 && thisField.hasClass('p1') == false && thisField.hasClass('p2') == false ) {
-      var random = Math.floor(Math.random() * $('.questionContent').length);
-      $('.questionContent').hide().eq(random).show();
+      
+      random = Math.floor(Math.random() * $('.questionContent').length);
+      chosenQuestion = $('.questionContent').hide().eq(random).show();
+      
       $('.question').css('display', "block");
       $('.questionText').css('display', "block");
     } else if (player == 1 && thisField.hasClass('p2')){
@@ -120,17 +123,26 @@ $(function(){
   });
   
   $('.yes').on('click', function(a){
+    console.log('asda');
+    
+    if (chosenQuestion != null) {
+      chosenQuestion.removeClass('questionContent');
+      chosenQuestion.text('');
+    }
+  
     if(player == 1) {
       thisField.removeClass('p2');
       thisField.addClass('p1');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
+      
     } else if(player == 2) {
       thisField.removeClass('p1');
       thisField.addClass('p2');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
     }
+    
   });
 
   $('.no').on('click', function(b){
