@@ -3,6 +3,9 @@
 @import "partials/header.scss";
 @import "partials/menu.scss";
 
+html {
+  font-family: sans-serif;
+}
 
 .nameGame {
   position: relative;
@@ -138,6 +141,7 @@
 }
 
 .questionContent {
+  font-family: serif;
   position: absolute;
   height: 300px;
   width: 800px;

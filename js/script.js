@@ -6,8 +6,10 @@ $(function(){
   var tr4 = $('.triangle4');
   var name = $('.name');
   
+  //Animacja napisu
   $('div.hidden').fadeIn(3000).removeClass('hidden');
   
+  //Animacje elementów menu
   tr1.one("mouseover", function(){
     tr1.addClass("rectangle");
     tr1.removeClass("triangle1");
@@ -55,6 +57,7 @@ $(function(){
   var player = 0;
   var thisField = null;
   
+  //Pojawianie się elementów na stronie
   nameGame.animate({'font-size': '50px', 'opacity': 1}, 3000);
   board.fadeIn(1000);
   player2.fadeIn(1000);
@@ -101,6 +104,7 @@ $(function(){
         }
    });
   
+  //Mechanika pytań po klinięciu i zmian koloru.
   var random = null;
   var chosenQuestion = null;
   
