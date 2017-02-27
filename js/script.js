@@ -126,6 +126,8 @@ $(function(){
     }
   });
   
+  // po pomyślnym wykonaniu zadania
+  
   $('.yes').on('click', function(a){
     console.log('asda');
     
@@ -148,6 +150,8 @@ $(function(){
     }
     
   });
+  
+  // po niewykonaniu zadania
 
   $('.no').on('click', function(b){
     if(player == 1) {
@@ -162,10 +166,6 @@ $(function(){
       $('.questionText').css('display', "none");
     }
   });
-  
-  //randomowo pokazujemy diva z kontentem
-  
-
 
 });
   
