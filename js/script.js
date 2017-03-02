@@ -10,6 +10,7 @@ $(function(){
   $('div.hidden').fadeIn(3000).removeClass('hidden');
   
   //Animacje elementów menu
+  
   tr1.one("mouseover", function(){
     tr1.addClass("rectangle");
     tr1.removeClass("triangle1");
