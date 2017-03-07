@@ -71,11 +71,9 @@ $(function(){
     if (player == 0 || player == 2) {
       player = 1;
       button.text('Gracz 1');
-      console.log('Player 1');
     } else if (player == 1) {
       player = 2;
       button.text('Gracz 2');
-      console.log('Player 2');
     }
   });  
     
@@ -142,12 +140,16 @@ $(function(){
       thisField.addClass('p1');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
+      player = 2;
+      button.text('Gracz 2');
       
     } else if(player == 2) {
       thisField.removeClass('p1');
       thisField.addClass('p2');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
+      player = 1;
+      button.text('Gracz 1');
     }
     
   });
@@ -159,12 +161,16 @@ $(function(){
       thisField.removeClass('p1');
       thisField.addClass('p2');
       $('.question').css('display', "none");
-      $('.questionText').css('display', "none"); 
+      $('.questionText').css('display', "none");
+      player = 2;
+      button.text('Gracz 2');
     } else if (player == 2) {
       thisField.removeClass('p2');
       thisField.addClass('p1');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
+      player = 1;
+      button.text('Gracz 1');
     }
   });
 
