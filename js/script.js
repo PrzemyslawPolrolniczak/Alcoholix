@@ -5,6 +5,7 @@ $(function(){
   var tr3 = $('.triangle3');
   var tr4 = $('.triangle4');
   var name = $('.name');
+  var gameMode = 0;
   
   //Animacja napisu
   $('div.hidden').fadeIn(3000).removeClass('hidden');
@@ -17,6 +18,8 @@ $(function(){
     tr1.css("left", "-180px");
     tr1.animate({'opacity': 0}, 50, function () { tr1.css("width", "360px"),
     tr1.text('1 Gracz');}).animate({'opacity': 1}, 1000);
+    gameMode = 1;
+    console.log(gameMode);
   });
   
   tr2.one("mouseover",function(){
@@ -25,6 +28,8 @@ $(function(){
     tr2.css("left", "187px");
     tr2.animate({'opacity': 0}, 50, function () { tr2.css("width", "360px"),
     tr2.text('2 Graczy');}).animate({'opacity': 1}, 1000);
+    gameMode = 2;
+    console.log(gameMode);
   });
   
   tr3.one("mouseover",function(){
@@ -34,6 +39,8 @@ $(function(){
     tr3.css("top", "187px");
     tr3.animate({'opacity': 0}, 50, function () { tr3.css('width', "360px"),
     tr3.text('3 Graczy');}).animate({'opacity': 1}, 1000);
+    gameMode = 3;
+    console.log(gameMode);
   });
   
   tr4.one("mouseover",function(){
@@ -44,6 +51,8 @@ $(function(){
     tr4.text('');
     tr4.animate({'opacity': 0}, 50, function () { tr4.css('width', "360px"),
     tr4.text('4 Graczy');}).animate({'opacity': 1}, 1000);
+    gameMode = 4;
+    console.log(gameMode);
   });
   
   //Tu jest kod do gry
@@ -52,7 +61,6 @@ $(function(){
   var field = $('.col-1');
   var button = $('.changePlayer');
   var href = $('a');
-  var body = $('.game');
   var board = $('.board');
   var player2 = $('.player2');
   var player = 0;
@@ -81,6 +89,7 @@ $(function(){
   
    field.on('mouseover', function() {
         console.log('hoverplayer2');
+        console.log(gameMode);
      
         if(player == 2){
           if ($(this).hasClass('p2') == false) {
@@ -175,4 +184,7 @@ $(function(){
   });
 
 });
+
+//dodać game mode:1 / 2 / 3 / 4, i w zależności od game mode ifem ma dziać się któraś gra (czyli ilość graczy).
+//dodać grę w tylko 1 dokumencie HTML, przez dodanie do wszystkich rzeczy z menu klase ".MENU" i danie jej hidden po kliknięciu w game-mode, a grze dać klase ".GAME" i show.
   
