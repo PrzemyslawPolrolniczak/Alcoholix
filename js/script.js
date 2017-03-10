@@ -129,20 +129,50 @@ $(function(){
           if ($(this).hasClass('p2') == false) {
             $(this).addClass('p2Chose');
             $(this).removeClass('p1Chose');
+            $(this).removeClass('p3Chose');
+            $(this).removeClass('p4Chose');
           } else {
             $(this).removeClass('p1Chose');
             $(this).removeClass('p2Chose');
+            $(this).removeClass('p3Chose');
+            $(this).removeClass('p4Chose');
           }
-        }
-        
-        if (player == 1){
-            if ($(this).hasClass('p1') == false) {
-              $(this).addClass('p1Chose');
-              $(this).removeClass('p2Chose');
-            } else {
-              $(this).removeClass('p1Chose');
-              $(this).removeClass('p2Chose');
-            }
+        } else if (player == 1){
+          if ($(this).hasClass('p1') == false) {
+            $(this).addClass('p1Chose');
+            $(this).removeClass('p2Chose');
+            $(this).removeClass('p3Chose');
+            $(this).removeClass('p4Chose');
+          } else {
+            $(this).removeClass('p1Chose');
+            $(this).removeClass('p2Chose');
+            $(this).removeClass('p3Chose');
+            $(this).removeClass('p4Chose');
+          }
+        } else if (player == 3){
+          if ($(this).hasClass('p3') == false) {
+            $(this).addClass('p3Chose');
+            $(this).removeClass('p1Chose');
+            $(this).removeClass('p2Chose');
+            $(this).removeClass('p4Chose');
+          } else {
+            $(this).removeClass('p1Chose');
+            $(this).removeClass('p2Chose');
+            $(this).removeClass('p3Chose');
+            $(this).removeClass('p4Chose');
+          }
+        } else if (player == 4){
+          if ($(this).hasClass('p4') == false) {
+            $(this).addClass('p4Chose');
+            $(this).removeClass('p1Chose');
+            $(this).removeClass('p2Chose');
+            $(this).removeClass('p3Chose');
+          } else {
+            $(this).removeClass('p1Chose');
+            $(this).removeClass('p2Chose');
+            $(this).removeClass('p3Chose');
+            $(this).removeClass('p4Chose');
+          }
         }
    });
   
