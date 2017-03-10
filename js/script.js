@@ -8,7 +8,7 @@ $(function(){
   var gameMode = 0;
   
   //Animacja napisu
-  $('div.hidden').fadeIn(3000);
+  var animate = $('div.hidden').fadeIn(3000);
   
   //Animacje elementów menu
   
@@ -28,8 +28,6 @@ $(function(){
     tr2.css("left", "187px");
     tr2.animate({'opacity': 0}, 50, function () { tr2.css("width", "360px"),
     tr2.text('2 Graczy');}).animate({'opacity': 1}, 1000);
-    gameMode = 2;
-    console.log(gameMode);
   });
   
   tr3.one("mouseover",function(){
@@ -80,7 +78,10 @@ $(function(){
   }
   
   tr2.on('click', function(){
+    animate.stop();
     showGame();
+    gameMode = 2;
+    console.log(gameMode);
   });
     
   //Pojawianie się elementów na stronie
@@ -101,8 +102,6 @@ $(function(){
   //mechanika podświetlania
   
    field.on('mouseover', function() {
-        console.log('hoverplayer2');
-        console.log(gameMode);
      
         if(player == 2){
           if ($(this).hasClass('p2') == false) {
