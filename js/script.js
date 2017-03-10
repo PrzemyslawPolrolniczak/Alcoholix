@@ -18,8 +18,6 @@ $(function(){
     tr1.css("left", "-180px");
     tr1.animate({'opacity': 0}, 50, function () { tr1.css("width", "360px"),
     tr1.text('1 Gracz');}).animate({'opacity': 1}, 1000);
-    gameMode = 1;
-    console.log(gameMode);
   });
   
   tr2.one("mouseover",function(){
@@ -37,8 +35,6 @@ $(function(){
     tr3.css("top", "187px");
     tr3.animate({'opacity': 0}, 50, function () { tr3.css('width', "360px"),
     tr3.text('3 Graczy');}).animate({'opacity': 1}, 1000);
-    gameMode = 3;
-    console.log(gameMode);
   });
   
   tr4.one("mouseover",function(){
@@ -49,8 +45,6 @@ $(function(){
     tr4.text('');
     tr4.animate({'opacity': 0}, 50, function () { tr4.css('width', "360px"),
     tr4.text('4 Graczy');}).animate({'opacity': 1}, 1000);
-    gameMode = 4;
-    console.log(gameMode);
   });
   
   //Tu jest kod do gry
@@ -68,19 +62,37 @@ $(function(){
   board.hide();
   button.hide();
   
+  //Zmiana z menu na grę
+  
   function showGame(){
     menu.fadeOut(500);
     game.delay(500).fadeIn(500);
     body.css('background-color', "#C0D860");
-    button.delay(600).fadeIn(2000);
-    nameGame.delay(600).animate({'font-size': '50px', 'opacity': 1}, 2000);
-    board.delay(600).fadeIn(2000);
+    button.delay(500).fadeIn(2000);
+    nameGame.animate({'font-size': '50px', 'opacity': 1}, 2000);
+    board.delay(500).fadeIn(2000);
   }
+  
+  //Zmiana ilości graczy
   
   tr2.on('click', function(){
     animate.stop();
     showGame();
     gameMode = 2;
+    console.log(gameMode);
+  });
+  
+  tr3.on('click', function(){
+    animate.stop();
+    showGame();
+    gameMode = 3;
+    console.log(gameMode);
+  });
+  
+  tr4.on('click', function(){
+    animate.stop();
+    showGame();
+    gameMode = 4;
     console.log(gameMode);
   });
     
