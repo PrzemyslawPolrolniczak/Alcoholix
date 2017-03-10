@@ -8,7 +8,7 @@ $(function(){
   var gameMode = 0;
   
   //Animacja napisu
-  $('div.hidden').fadeIn(3000).removeClass('hidden');
+  $('div.hidden').fadeIn(3000);
   
   //Animacje elementów menu
   
@@ -61,26 +61,29 @@ $(function(){
   var field = $('.col-1');
   var button = $('.changePlayer');
   var board = $('.board');
-  var player2 = $('.player2');
   var player = 0;
   var thisField = null;
   var game = $('.game');
   var menu = $('.menu');
   var body = $('body');
   game.hide();
-  field.hide();
+  board.hide();
+  button.hide();
+  
+  function showGame(){
+    menu.fadeOut(500);
+    game.delay(500).fadeIn(500);
+    body.css('background-color', "#C0D860");
+    button.delay(600).fadeIn(2000);
+    nameGame.delay(600).animate({'font-size': '50px', 'opacity': 1}, 2000);
+    board.delay(600).fadeIn(2000);
+  }
   
   tr2.on('click', function(){
-    menu.fadeOut(1000);
-    game.fadeIn(1000);
-    body.css('background-color', "#C0D860");
+    showGame();
   });
     
   //Pojawianie się elementów na stronie
-  nameGame.animate({'font-size': '50px', 'opacity': 1}, 3000);
-  field.fadeIn(1000);
-  player2.fadeIn(1000);
-  
   
   //guzik zmiany gracza
   button.on('click',function(e){
