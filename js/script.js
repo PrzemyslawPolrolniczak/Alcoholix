@@ -95,19 +95,29 @@ $(function(){
     gameMode = 4;
     console.log(gameMode);
   });
-    
-  //Pojawianie się elementów na stronie
-  
-  //guzik zmiany gracza
+      
+  //guzik zmiany gracza, w razie pomyłki aby można było naprawić błąd
   button.on('click',function(e){
     
     e.preventDefault();
-    if (player == 0 || player == 2) {
+    if (player == 0 || player == 2 && gameMode == 2) {
       player = 1;
       button.text('Gracz 1');
     } else if (player == 1) {
       player = 2;
       button.text('Gracz 2');
+    } else if (gameMode == 3 && player == 2 || gameMode == 4 && player == 2) {
+      player = 3;
+      button.text('Gracz 3');
+    } else if (gameMode == 3 && player == 3) {
+      player = 1;
+      button.text('Gracz 1');
+    } else if (gameMode == 4 && player == 3) {
+      player = 4;
+      button.text('Gracz 4');
+    } else if (player == 4) {
+      player = 1;
+      button.text('Gracz 1');
     }
   });  
     
