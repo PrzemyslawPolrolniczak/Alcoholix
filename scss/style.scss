@@ -7,17 +7,6 @@ html {
   font-family: sans-serif;
 }
 
-.nameGame {
-  position: relative;
-  height: 15vh;
-  line-height: 15vh;
-  text-align: center;
-  font-size: 1px;
-  color: #604848;
-  font-weight: 900;
-  opacity: 0;
-}
-
 .col-1 {
   color: #604848;
   background-color: #F0F0D8;
@@ -39,6 +28,16 @@ html {
 
 .game {
   background-color: #C0D860;
+  .nameGame {
+    position: relative;
+    height: 15vh;
+    line-height: 15vh;
+    text-align: center;
+    font-size: 1px;
+    color: #604848;
+    font-weight: 900;
+    opacity: 0;
+  }
 }
 
 .row {
