@@ -46,14 +46,25 @@ html {
   height: 25%;
 }
 
-.p2 {
+.p1, .p2, .p3, .p4 {
   color: beige;
+}
+
+.p2 {
   background-color: #00B4CC;
 }
 
 .p1 {
-  color: beige;
   background-color: #FF5959;
+}
+
+.p3 {
+  color: gray;
+  background-color: #F2F25E;
+}
+
+.p4 {
+  background-color: #56F063;
 }
 
 .col-1:hover {
@@ -85,6 +96,14 @@ html {
 
 .p2Chose:hover {
   background-color: #94CED6;
+}
+
+.p3Chose:hover {
+  background-color: #FAFA82;
+}
+
+.p4Chose:hover {
+  background-color: #8AFF93;
 }
 
 .question {

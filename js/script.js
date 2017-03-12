@@ -79,21 +79,18 @@ $(function(){
     animate.stop();
     showGame();
     gameMode = 2;
-    console.log(gameMode);
   });
   
   tr3.on('click', function(){
     animate.stop();
     showGame();
     gameMode = 3;
-    console.log(gameMode);
   });
   
   tr4.on('click', function(){
     animate.stop();
     showGame();
     gameMode = 4;
-    console.log(gameMode);
   });
       
   //guzik zmiany gracza, w razie pomyłki aby można było naprawić błąd
@@ -306,5 +303,7 @@ $(function(){
 });
 
 //dodać game mode:1 / 2 / 3 / 4, i w zależności od game mode ifem ma dziać się któraś gra (czyli ilość graczy).
-//dodać grę w tylko 1 dokumencie HTML, przez dodanie do wszystkich rzeczy z menu klase ".MENU" i danie jej hidden po kliknięciu w game-mode, a grze dać klase ".GAME" i show.
+//dodać przycisk powrotu do wyboru ilości graczy
+//dodać responsywność (breakpointy)
+//dodać funkcję, co po zapełnieniu całego pola wyświetla alert z wygranym graczem (można to jakoś zrobić przez "if $('.p3.).length > $('.p2').length ")
   
