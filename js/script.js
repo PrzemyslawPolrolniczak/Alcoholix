@@ -69,7 +69,7 @@ $(function(){
     game.delay(500).fadeIn(500);
     body.css('background-color', "#C0D860");
     button.delay(500).fadeIn(2000);
-    nameGame.animate({'font-size': '50px', 'opacity': 1}, 2000);
+    nameGame.animate({'font-size': '50px', 'opacity': 1}, 3000);
     board.delay(500).fadeIn(2000);
   }
   

@@ -114,6 +114,7 @@ html {
 }
 
 .yes, .no {
+  border: 2px solid black;
   color: beige;
   font-size: 30px;
   line-height: 45px;
@@ -131,11 +132,13 @@ html {
 } 
 
 .yes:hover {
+  border: 2px solid green;
   box-shadow: 0 0 10px green;
   background-color: darkgreen;
 }
 
 .no:hover {
+  border: 2px solid red;
   box-shadow: 0 0 10px red;
   background-color: firebrick;
 }
