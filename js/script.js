@@ -201,24 +201,49 @@ $(function(){
   // po pomyślnym wykonaniu zadania
   
   $('.yes').on('click', function(a){
-    console.log('asda');
     
     if (chosenQuestion != null) {
       chosenQuestion.removeClass('questionContent');
       chosenQuestion.text('');
     }
   
-    if(player == 1) {
-      thisField.removeClass('p2');
+    if (player == 1) {
       thisField.addClass('p1');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
       player = 2;
       button.text('Gracz 2');
       
-    } else if(player == 2) {
-      thisField.removeClass('p1');
+    } else if (player == 2 && gameMode == 2) {
       thisField.addClass('p2');
+      $('.question').css('display', "none");
+      $('.questionText').css('display', "none");
+      player = 1;
+      button.text('Gracz 1');
+      
+    } else if (player == 2 && gameMode == 3 || player == 2 && gameMode == 4 ) {
+      thisField.addClass('p2');
+      $('.question').css('display', "none");
+      $('.questionText').css('display', "none");
+      player = 3;
+      button.text('Gracz 3');
+      
+    } else if (player == 3 && gameMode == 3) {
+      thisField.addClass('p3');
+      $('.question').css('display', "none");
+      $('.questionText').css('display', "none");
+      player = 1;
+      button.text('Gracz 1');
+      
+    } else if (player == 3 && gameMode == 4) {
+      thisField.addClass('p3');
+      $('.question').css('display', "none");
+      $('.questionText').css('display', "none");
+      player = 4;
+      button.text('Gracz 4');
+      
+    } else if (player == 4) {
+      thisField.addClass('p4');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
       player = 1;
@@ -230,16 +255,47 @@ $(function(){
   // po niewykonaniu zadania
 
   $('.no').on('click', function(b){
-    if(player == 1) {
+    if(player == 1 && gameMode == 2) {
       thisField.removeClass('p1');
       thisField.addClass('p2');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
       player = 2;
       button.text('Gracz 2');
-    } else if (player == 2) {
+      
+    } else if (player == 2 && gameMode == 2) {
       thisField.removeClass('p2');
       thisField.addClass('p1');
+      $('.question').css('display', "none");
+      $('.questionText').css('display', "none");
+      player = 1;
+      button.text('Gracz 1');
+      
+    } else if (player == 1) {
+      $('.question').css('display', "none");
+      $('.questionText').css('display', "none");
+      player = 2;
+      button.text('Gracz 2');
+      
+    } else if (player == 2) {
+      $('.question').css('display', "none");
+      $('.questionText').css('display', "none");
+      player = 3;
+      button.text('Gracz 3');
+      
+    } else if (player == 3 && gameMode == 3) {
+      $('.question').css('display', "none");
+      $('.questionText').css('display', "none");
+      player = 1;
+      button.text('Gracz 1');
+      
+    } else if (player == 3 && gameMode == 4) {
+      $('.question').css('display', "none");
+      $('.questionText').css('display', "none");
+      player = 4;
+      button.text('Gracz 4');
+      
+    } else if (player == 4) {
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
       player = 1;
