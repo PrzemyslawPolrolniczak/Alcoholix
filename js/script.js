@@ -236,6 +236,7 @@ $(function(){
       $('.questionText').css('display', "none");
       player = 2;
       button.text('Gracz 2');
+      gameEnd();
       
     } else if (player == 2 && gameMode == 2) {
       thisField.addClass('p2');
@@ -244,6 +245,7 @@ $(function(){
       $('.questionText').css('display', "none");
       player = 1;
       button.text('Gracz 1');
+      gameEnd();
       
     } else if (player == 2 && gameMode == 3 || player == 2 && gameMode == 4 ) {
       thisField.addClass('p2');
@@ -252,6 +254,7 @@ $(function(){
       $('.questionText').css('display', "none");
       player = 3;
       button.text('Gracz 3');
+      gameEnd();
       
     } else if (player == 3 && gameMode == 3) {
       thisField.addClass('p3');
@@ -260,6 +263,7 @@ $(function(){
       $('.questionText').css('display', "none");
       player = 1;
       button.text('Gracz 1');
+      gameEnd();
       
     } else if (player == 3 && gameMode == 4) {
       thisField.addClass('p3');
@@ -268,6 +272,7 @@ $(function(){
       $('.questionText').css('display', "none");
       player = 4;
       button.text('Gracz 4');
+      gameEnd();
       
     } else if (player == 4) {
       thisField.addClass('p4');
@@ -276,6 +281,7 @@ $(function(){
       $('.questionText').css('display', "none");
       player = 1;
       button.text('Gracz 1');
+      gameEnd();
     }
     
   });
@@ -332,7 +338,15 @@ $(function(){
       button.text('Gracz 1');
     }
   });
-
+  
+  //Alert końca gry
+  
+  function gameEnd (){
+    if (field.hasClass('empty') == false) {
+      alert('Koniec gry');
+    }
+  }
+  
 });
 
 //dodać przycisk powrotu do wyboru ilości graczy
