@@ -121,56 +121,48 @@ $(function(){
     
   //mechanika podświetlania
   
+  function changeClasses (ClassAdd, remove1, remove2, remove3, remove4) {
+    thisField.addClass(ClassAdd);
+    thisField.removeClass(remove1);
+    thisField.removeClass(remove2);
+    thisField.removeClass(remove3);
+    thisField.removeClass(remove4);
+  }
+  
    field.on('mouseover', function() {
-     
+     thisField = $(this);
         if(player == 2){
-          if ($(this).hasClass('p2') == false) {
-            $(this).addClass('p2Chose');
-            $(this).removeClass('p1Chose');
-            $(this).removeClass('p3Chose');
-            $(this).removeClass('p4Chose');
+          
+          if (thisField.hasClass('p2') == false) {
+            changeClasses('p2Chose', 'p1Chose', 'p3Chose', 'p4Chose');
           } else {
-            $(this).removeClass('p1Chose');
-            $(this).removeClass('p2Chose');
-            $(this).removeClass('p3Chose');
-            $(this).removeClass('p4Chose');
+            changeClasses('', 'p1Chose', 'p2Chose', 'p3Chose', 'p4Chose');
           }
+          
         } else if (player == 1){
-          if ($(this).hasClass('p1') == false) {
-            $(this).addClass('p1Chose');
-            $(this).removeClass('p2Chose');
-            $(this).removeClass('p3Chose');
-            $(this).removeClass('p4Chose');
+          
+          if (thisField.hasClass('p1') == false) {
+            changeClasses('p1Chose', 'p2Chose', 'p3Chose', 'p4Chose');
           } else {
-            $(this).removeClass('p1Chose');
-            $(this).removeClass('p2Chose');
-            $(this).removeClass('p3Chose');
-            $(this).removeClass('p4Chose');
+            changeClasses('', 'p1Chose', 'p2Chose', 'p3Chose', 'p4Chose');
           }
+        
         } else if (player == 3){
-          if ($(this).hasClass('p3') == false) {
-            $(this).addClass('p3Chose');
-            $(this).removeClass('p1Chose');
-            $(this).removeClass('p2Chose');
-            $(this).removeClass('p4Chose');
+          
+          if (thisField.hasClass('p3') == false) {
+            changeClasses('p3Chose', 'p1Chose', 'p2Chose', 'p4Chose');
           } else {
-            $(this).removeClass('p1Chose');
-            $(this).removeClass('p2Chose');
-            $(this).removeClass('p3Chose');
-            $(this).removeClass('p4Chose');
+            changeClasses('', 'p1Chose', 'p2Chose', 'p3Chose', 'p4Chose');
           }
+          
         } else if (player == 4){
-          if ($(this).hasClass('p4') == false) {
-            $(this).addClass('p4Chose');
-            $(this).removeClass('p1Chose');
-            $(this).removeClass('p2Chose');
-            $(this).removeClass('p3Chose');
+          
+          if (thisField.hasClass('p4') == false) {
+            changeClasses('p4Chose', 'p1Chose', 'p2Chose', 'p3Chose');
           } else {
-            $(this).removeClass('p1Chose');
-            $(this).removeClass('p2Chose');
-            $(this).removeClass('p3Chose');
-            $(this).removeClass('p4Chose');
+            changeClasses('', 'p1Chose', 'p2Chose', 'p3Chose', 'p4Chose');
           }
+          
         }
    });
   
@@ -179,7 +171,6 @@ $(function(){
   var chosenQuestion = null;
   
   field.on('click', function(){
-    thisField = $(this);
     if (player != 0 && thisField.hasClass('p1') == false && thisField.hasClass('p2') == false && thisField.hasClass('p3') == false && thisField.hasClass('p4') == false ) {
       
       random = Math.floor(Math.random() * $('.questionContent').length);
