@@ -4,7 +4,6 @@ $(function(){
   var tr2 = $('.triangle2');
   var tr3 = $('.triangle3');
   var tr4 = $('.triangle4');
-  var name = $('.name');
   var gameMode = 0;
   
   //Animacja napisu
@@ -12,64 +11,51 @@ $(function(){
   
   //Animacje elementów menu
   
+  function animateMenu (triangle, addClass1, removeClass1, css1, text1) {
+    triangle.addClass(addClass1);
+    triangle.removeClass(removeClass1);
+    triangle.css("left", css1);
+    triangle.animate({'opacity': 0}, 50, function () { triangle.css("width", "360px"),
+    triangle.text(text1);}).animate({'opacity': 1}, 1000);
+  }
+  
   tr1.one("mouseover", function(){
-    tr1.addClass("rectangle");
-    tr1.removeClass("triangle1");
-    tr1.css("left", "-180px");
-    tr1.animate({'opacity': 0}, 50, function () { tr1.css("width", "360px"),
-    tr1.text('1 Gracz');}).animate({'opacity': 1}, 1000);
+    animateMenu(tr1,"rectangle", "triangle1", "-180px", "1 Gracz")
   });
   
   tr2.one("mouseover",function(){
-    tr2.addClass("rectangle altBackground");
-    tr2.removeClass("triangle2");
-    tr2.css("left", "187px");
-    tr2.animate({'opacity': 0}, 50, function () { tr2.css("width", "360px"),
-    tr2.text('2 Graczy');}).animate({'opacity': 1}, 1000);
+    animateMenu(tr2,"rectangle altBackground", "triangle2", "187px", "2 Graczy")
   });
   
   tr3.one("mouseover",function(){
-    tr3.addClass("rectangle altBackground");
-    tr3.removeClass("triangle3");
-    tr3.css("left", "-180px");
+    animateMenu(tr3,"rectangle altBackground", "triangle3", "-180px", "3 Graczy")
     tr3.css("top", "187px");
-    tr3.animate({'opacity': 0}, 50, function () { tr3.css('width', "360px"),
-    tr3.text('3 Graczy');}).animate({'opacity': 1}, 1000);
   });
   
   tr4.one("mouseover",function(){
-    tr4.addClass("rectangle");
-    tr4.removeClass("triangle4");
-    tr4.css("left", "187px");
+    animateMenu(tr4,"rectangle", "triangle4", "187px", "4 Graczy")
     tr4.css("top", "187px");
     tr4.text('');
-    tr4.animate({'opacity': 0}, 50, function () { tr4.css('width', "360px"),
-    tr4.text('4 Graczy');}).animate({'opacity': 1}, 1000);
   });
   
   //Tu jest kod do gry
   
-  var nameGame = $('.nameGame');
   var field = $('.col-1');
   var button = $('.changePlayer');
-  var board = $('.board');
   var player = 0;
   var thisField = null;
-  var game = $('.game');
-  var menu = $('.menu');
-  var body = $('body');
-  game.hide();
+  $('.game').hide();
   button.hide();
   
   //Zmiana z menu na grę
   
   function showGame(){
-    menu.fadeOut(500);
-    game.delay(500).fadeIn(500);
-    body.css('background-color', "#C0D860");
-    button.delay(500).fadeIn(2000);
-    nameGame.animate({'font-size': '50px', 'opacity': 1}, 3000);
-    board.delay(500).fadeIn(2000);
+    $('.menu').fadeOut(500);
+    $('.game').delay(500).fadeIn(1000);
+    $('body').css('background-color', "#C0D860");
+    button.delay(500).fadeIn(1000);
+    $('.nameGame').animate({'font-size': '50px', 'opacity': 1}, 2000);
+    $('.board').delay(500).fadeIn(1000);
   }
   
   //Zmiana ilości graczy
@@ -168,6 +154,13 @@ $(function(){
         }
    });
   
+  //funkcja odpowiadająca pokazywaniu się lub ukrywaniu diva z pytaniem
+  
+  function questions (display) {
+    $('.question').css('display', display);
+    $('.questionText').css('display', display);
+  }
+  
   //Mechanika pytań po klinięciu i zmian koloru (w przypadku pomyłki użytkownika)
   var random = null;
   var chosenQuestion = null;
@@ -178,8 +171,7 @@ $(function(){
       random = Math.floor(Math.random() * $('.questionContent').length);
       chosenQuestion = $('.questionContent').hide().eq(random).show();
       
-      $('.question').css('display', "block");
-      $('.questionText').css('display', "block");
+      questions('block');
       
     } else if (player == 1 && thisField.hasClass('p2') || player == 1 && thisField.hasClass('p3') || player == 1 && thisField.hasClass('p4')){
       
@@ -211,43 +203,37 @@ $(function(){
   
     if (player == 1) {
       changeClasses ('p1', 'empty');
-      $('.question').css('display', "none");
-      $('.questionText').css('display', "none");
+      questions('none');
       playerChange(2);
       gameEnd();
       
     } else if (player == 2 && gameMode == 2) {
       changeClasses ('p2', 'empty');
-      $('.question').css('display', "none");
-      $('.questionText').css('display', "none");
+      questions('none');
       playerChange(1);
       gameEnd();
       
     } else if (player == 2 && gameMode == 3 || player == 2 && gameMode == 4 ) {
       changeClasses ('p2', 'empty');
-      $('.question').css('display', "none");
-      $('.questionText').css('display', "none");
+      questions('none');
       playerChange(3);
       gameEnd();
       
     } else if (player == 3 && gameMode == 3) {
       changeClasses ('p3', 'empty');
-      $('.question').css('display', "none");
-      $('.questionText').css('display', "none");
+      questions('none');
       playerChange(1);
       gameEnd();
       
     } else if (player == 3 && gameMode == 4) {
       changeClasses ('p3', 'empty');
-      $('.question').css('display', "none");
-      $('.questionText').css('display', "none");
+      questions('none');
       playerChange(4);
       gameEnd();
       
     } else if (player == 4) {
       changeClasses ('p4', 'empty');
-      $('.question').css('display', "none");
-      $('.questionText').css('display', "none");
+      questions('none');
       playerChange(1);
       gameEnd();
     }
@@ -260,39 +246,32 @@ $(function(){
     
     if(player == 1 && gameMode == 2) {
       changeClasses ('p2', 'p1', 'empty');
-      $('.question').css('display', "none");
-      $('.questionText').css('display', "none");
+      questions('none');
       playerChange(2);
       
     } else if (player == 2 && gameMode == 2) {
       changeClasses ('p1', 'p2', 'empty');
-      $('.question').css('display', "none");
-      $('.questionText').css('display', "none");
+      questions('none');
       playerChange(1);
       
     } else if (player == 1) {
-      $('.question').css('display', "none");
-      $('.questionText').css('display', "none");
+      questions('none');
       playerChange(2);
       
     } else if (player == 2) {
-      $('.question').css('display', "none");
-      $('.questionText').css('display', "none");
+      questions('none');
       playerChange(3);
       
     } else if (player == 3 && gameMode == 3) {
-      $('.question').css('display', "none");
-      $('.questionText').css('display', "none");
+      questions('none');
       playerChange(1);
       
     } else if (player == 3 && gameMode == 4) {
-      $('.question').css('display', "none");
-      $('.questionText').css('display', "none");
+      questions('none');
       playerChange(4);
       
     } else if (player == 4) {
-      $('.question').css('display', "none");
-      $('.questionText').css('display', "none");
+      questions('none');
       playerChange(1);
     }
   });
@@ -348,6 +327,5 @@ $(function(){
 
 //dodać przycisk powrotu do wyboru ilości graczy
 //dodać responsywność (breakpointy)
-//dodać funkcję, co po zapełnieniu całego pola wyświetla alert z wygranym graczem (można to jakoś zrobić przez "if $('.p3.).length > $('.p2').length ")
 //dodać licznik wypitego alko i ilość punktów
   
