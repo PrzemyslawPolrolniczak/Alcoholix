@@ -289,6 +289,7 @@ $(function(){
   // po niewykonaniu zadania
 
   $('.no').on('click', function(b){
+    
     if(player == 1 && gameMode == 2) {
       thisField.removeClass('p1');
       thisField.removeClass('empty');
@@ -342,8 +343,27 @@ $(function(){
   //Alert końca gry
   
   function gameEnd (){
+    var winner = null;
+    
     if (field.hasClass('empty') == false) {
-      alert('Koniec gry');
+      
+      if ( $('.p1').length > $('.p2').length && $('.p1').length > $('.p3').length && $('.p1').length > $('.p4').length ) {
+        winner = "Gracz 1 wygrywa!";
+        
+      } else if ( $('.p2').length > $('.p1').length && $('.p2').length > $('.p3').length && $('.p2').length > $('.p4').length ) {
+        winner = "Gracz 2 wygrywa!";
+        
+      } else if ( $('.p3').length > $('.p2').length && $('.p3').length > $('.p1').length && $('.p3').length > $('.p4').length ) {
+        winner = "Gracz 3 wygrywa!";
+        
+      } else if ( $('.p4').length > $('.p2').length && $('.p4').length > $('.p3').length && $('.p4').length > $('.p1').length ) {
+        winner = "Gracz 4 wygrywa!";
+        
+      } else {
+        winner = "Remis!";
+        
+      }
+      alert(winner);
     }
   }
   
