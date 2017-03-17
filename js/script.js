@@ -59,7 +59,6 @@ $(function(){
   var menu = $('.menu');
   var body = $('body');
   game.hide();
-  board.hide();
   button.hide();
   
   //Zmiana z menu na grę
@@ -186,25 +185,33 @@ $(function(){
       
       $('.question').css('display', "block");
       $('.questionText').css('display', "block");
+      
     } else if (player == 1 && thisField.hasClass('p2') || player == 1 && thisField.hasClass('p3') || player == 1 && thisField.hasClass('p4')){
+      
       thisField.removeClass('p2');
       thisField.removeClass('p3');
       thisField.removeClass('p4');
       thisField.removeClass('empty');
       thisField.addClass('p1');
+      
     } else if (player == 2 && thisField.hasClass('p1') || player == 2 && thisField.hasClass('p3') || player == 2 && thisField.hasClass('p4')){
+      
       thisField.removeClass('p1');
       thisField.removeClass('p3');
       thisField.removeClass('p4');
       thisField.removeClass('empty');
       thisField.addClass('p2');
+      
     } else if (player == 3 && thisField.hasClass('p1') || player == 3 && thisField.hasClass('p2') || player == 3 && thisField.hasClass('p4')){
+      
       thisField.removeClass('p1');
       thisField.removeClass('p2');
       thisField.removeClass('p4');
       thisField.removeClass('empty');
       thisField.addClass('p3');
+      
     } else if (player == 4 && thisField.hasClass('p1') || player == 4 && thisField.hasClass('p2') || player == 4 && thisField.hasClass('p3')){
+      
       thisField.removeClass('p1');
       thisField.removeClass('p2');
       thisField.removeClass('p3');
@@ -224,6 +231,7 @@ $(function(){
   
     if (player == 1) {
       thisField.addClass('p1');
+      thisField.removeClass('empty');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
       player = 2;
@@ -231,6 +239,7 @@ $(function(){
       
     } else if (player == 2 && gameMode == 2) {
       thisField.addClass('p2');
+      thisField.removeClass('empty');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
       player = 1;
@@ -238,6 +247,7 @@ $(function(){
       
     } else if (player == 2 && gameMode == 3 || player == 2 && gameMode == 4 ) {
       thisField.addClass('p2');
+      thisField.removeClass('empty');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
       player = 3;
@@ -245,6 +255,7 @@ $(function(){
       
     } else if (player == 3 && gameMode == 3) {
       thisField.addClass('p3');
+      thisField.removeClass('empty');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
       player = 1;
@@ -252,6 +263,7 @@ $(function(){
       
     } else if (player == 3 && gameMode == 4) {
       thisField.addClass('p3');
+      thisField.removeClass('empty');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
       player = 4;
@@ -259,6 +271,7 @@ $(function(){
       
     } else if (player == 4) {
       thisField.addClass('p4');
+      thisField.removeClass('empty');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
       player = 1;
