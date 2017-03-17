@@ -179,19 +179,37 @@ $(function(){
   
   field.on('click', function(){
     thisField = $(this);
-    if (player != 0 && thisField.hasClass('p1') == false && thisField.hasClass('p2') == false ) {
+    if (player != 0 && thisField.hasClass('p1') == false && thisField.hasClass('p2') == false && thisField.hasClass('p3') == false && thisField.hasClass('p4') == false ) {
       
       random = Math.floor(Math.random() * $('.questionContent').length);
       chosenQuestion = $('.questionContent').hide().eq(random).show();
       
       $('.question').css('display', "block");
       $('.questionText').css('display', "block");
-    } else if (player == 1 && thisField.hasClass('p2')){
+    } else if (player == 1 && thisField.hasClass('p2') || player == 1 && thisField.hasClass('p3') || player == 1 && thisField.hasClass('p4')){
       thisField.removeClass('p2');
+      thisField.removeClass('p3');
+      thisField.removeClass('p4');
+      thisField.removeClass('empty');
       thisField.addClass('p1');
-    } else if (player == 2 && thisField.hasClass('p1')){
+    } else if (player == 2 && thisField.hasClass('p1') || player == 2 && thisField.hasClass('p3') || player == 2 && thisField.hasClass('p4')){
       thisField.removeClass('p1');
+      thisField.removeClass('p3');
+      thisField.removeClass('p4');
+      thisField.removeClass('empty');
       thisField.addClass('p2');
+    } else if (player == 3 && thisField.hasClass('p1') || player == 3 && thisField.hasClass('p2') || player == 3 && thisField.hasClass('p4')){
+      thisField.removeClass('p1');
+      thisField.removeClass('p2');
+      thisField.removeClass('p4');
+      thisField.removeClass('empty');
+      thisField.addClass('p3');
+    } else if (player == 4 && thisField.hasClass('p1') || player == 4 && thisField.hasClass('p2') || player == 4 && thisField.hasClass('p3')){
+      thisField.removeClass('p1');
+      thisField.removeClass('p2');
+      thisField.removeClass('p3');
+      thisField.removeClass('empty');
+      thisField.addClass('p4');
     }
   });
   
@@ -254,6 +272,7 @@ $(function(){
   $('.no').on('click', function(b){
     if(player == 1 && gameMode == 2) {
       thisField.removeClass('p1');
+      thisField.removeClass('empty');
       thisField.addClass('p2');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
@@ -262,6 +281,7 @@ $(function(){
       
     } else if (player == 2 && gameMode == 2) {
       thisField.removeClass('p2');
+      thisField.removeClass('empty');
       thisField.addClass('p1');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
@@ -302,8 +322,8 @@ $(function(){
 
 });
 
-//dodać game mode:1 / 2 / 3 / 4, i w zależności od game mode ifem ma dziać się któraś gra (czyli ilość graczy).
 //dodać przycisk powrotu do wyboru ilości graczy
 //dodać responsywność (breakpointy)
 //dodać funkcję, co po zapełnieniu całego pola wyświetla alert z wygranym graczem (można to jakoś zrobić przez "if $('.p3.).length > $('.p2').length ")
+//dodać licznik wypitego alko i ilość punktów
   
