@@ -93,27 +93,27 @@ $(function(){
   });
       
   //guzik zmiany gracza, w razie pomyłki aby można było naprawić błąd
+  
+  function playerChange (playerNum) {
+    player = playerNum;
+    button.text('Gracz ' + playerNum);
+  };
+  
   button.on('click',function(e){
     
     e.preventDefault();
     if (player == 0 || player == 2 && gameMode == 2) {
-      player = 1;
-      button.text('Gracz 1');
+      playerChange(1);
     } else if (player == 1) {
-      player = 2;
-      button.text('Gracz 2');
+      playerChange(2);
     } else if (gameMode == 3 && player == 2 || gameMode == 4 && player == 2) {
-      player = 3;
-      button.text('Gracz 3');
+      playerChange(3);
     } else if (gameMode == 3 && player == 3) {
-      player = 1;
-      button.text('Gracz 1');
+      playerChange(1);
     } else if (gameMode == 4 && player == 3) {
-      player = 4;
-      button.text('Gracz 4');
+      playerChange(4);
     } else if (player == 4) {
-      player = 1;
-      button.text('Gracz 1');
+      playerChange(1);
     }
   });  
     
@@ -340,6 +340,7 @@ $(function(){
     }
   });
   
+  
   //Alert końca gry
   
   function gameEnd (){
@@ -349,15 +350,39 @@ $(function(){
       
       if ( $('.p1').length > $('.p2').length && $('.p1').length > $('.p3').length && $('.p1').length > $('.p4').length ) {
         winner = "Gracz 1 wygrywa!";
+        field.removeClass('p2');
+        field.removeClass('p3');
+        field.removeClass('p4');
+        field.addClass('p1');
+        player = 1;
+        button.text('Gracz 1');
         
       } else if ( $('.p2').length > $('.p1').length && $('.p2').length > $('.p3').length && $('.p2').length > $('.p4').length ) {
         winner = "Gracz 2 wygrywa!";
+        field.removeClass('p1');
+        field.removeClass('p3');
+        field.removeClass('p4');
+        field.addClass('p2');
+        player = 2;
+        button.text('Gracz 2');
         
       } else if ( $('.p3').length > $('.p2').length && $('.p3').length > $('.p1').length && $('.p3').length > $('.p4').length ) {
         winner = "Gracz 3 wygrywa!";
+        field.removeClass('p2');
+        field.removeClass('p1');
+        field.removeClass('p4');
+        field.addClass('p3');
+        player = 3;
+        button.text('Gracz 3');
         
       } else if ( $('.p4').length > $('.p2').length && $('.p4').length > $('.p3').length && $('.p4').length > $('.p1').length ) {
         winner = "Gracz 4 wygrywa!";
+        field.removeClass('p2');
+        field.removeClass('p3');
+        field.removeClass('p1');
+        field.addClass('p4');
+        player = 4;
+        button.text('Gracz 4');
         
       } else {
         winner = "Remis!";
