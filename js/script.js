@@ -119,7 +119,7 @@ $(function(){
     }
   });  
     
-  //mechanika podświetlania
+  //Funkcja dodająca i usuwająca klasy
   
   function changeClasses (ClassAdd, remove1, remove2, remove3, remove4) {
     thisField.addClass(ClassAdd);
@@ -128,6 +128,8 @@ $(function(){
     thisField.removeClass(remove3);
     thisField.removeClass(remove4);
   }
+  
+  //mechanika podświetlania
   
    field.on('mouseover', function() {
      thisField = $(this);
@@ -166,7 +168,7 @@ $(function(){
         }
    });
   
-  //Mechanika pytań po klinięciu i zmian koloru.
+  //Mechanika pytań po klinięciu i zmian koloru (w przypadku pomyłki użytkownika)
   var random = null;
   var chosenQuestion = null;
   
@@ -181,35 +183,20 @@ $(function(){
       
     } else if (player == 1 && thisField.hasClass('p2') || player == 1 && thisField.hasClass('p3') || player == 1 && thisField.hasClass('p4')){
       
-      thisField.removeClass('p2');
-      thisField.removeClass('p3');
-      thisField.removeClass('p4');
-      thisField.removeClass('empty');
-      thisField.addClass('p1');
+      changeClasses ('p1', 'p2', 'p3', 'p4', 'empty');
       
     } else if (player == 2 && thisField.hasClass('p1') || player == 2 && thisField.hasClass('p3') || player == 2 && thisField.hasClass('p4')){
       
-      thisField.removeClass('p1');
-      thisField.removeClass('p3');
-      thisField.removeClass('p4');
-      thisField.removeClass('empty');
-      thisField.addClass('p2');
+      changeClasses ('p2', 'p1', 'p3', 'p4', 'empty');
       
     } else if (player == 3 && thisField.hasClass('p1') || player == 3 && thisField.hasClass('p2') || player == 3 && thisField.hasClass('p4')){
       
-      thisField.removeClass('p1');
-      thisField.removeClass('p2');
-      thisField.removeClass('p4');
-      thisField.removeClass('empty');
-      thisField.addClass('p3');
+      changeClasses ('p3', 'p1', 'p2', 'p4', 'empty');
       
     } else if (player == 4 && thisField.hasClass('p1') || player == 4 && thisField.hasClass('p2') || player == 4 && thisField.hasClass('p3')){
       
-      thisField.removeClass('p1');
-      thisField.removeClass('p2');
-      thisField.removeClass('p3');
-      thisField.removeClass('empty');
-      thisField.addClass('p4');
+      changeClasses ('p4', 'p1', 'p2', 'p3', 'empty');
+      
     }
   });
   
@@ -223,48 +210,42 @@ $(function(){
     }
   
     if (player == 1) {
-      thisField.addClass('p1');
-      thisField.removeClass('empty');
+      changeClasses ('p1', 'empty');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
       playerChange(2);
       gameEnd();
       
     } else if (player == 2 && gameMode == 2) {
-      thisField.addClass('p2');
-      thisField.removeClass('empty');
+      changeClasses ('p2', 'empty');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
       playerChange(1);
       gameEnd();
       
     } else if (player == 2 && gameMode == 3 || player == 2 && gameMode == 4 ) {
-      thisField.addClass('p2');
-      thisField.removeClass('empty');
+      changeClasses ('p2', 'empty');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
       playerChange(3);
       gameEnd();
       
     } else if (player == 3 && gameMode == 3) {
-      thisField.addClass('p3');
-      thisField.removeClass('empty');
+      changeClasses ('p3', 'empty');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
       playerChange(1);
       gameEnd();
       
     } else if (player == 3 && gameMode == 4) {
-      thisField.addClass('p3');
-      thisField.removeClass('empty');
+      changeClasses ('p3', 'empty');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
       playerChange(4);
       gameEnd();
       
     } else if (player == 4) {
-      thisField.addClass('p4');
-      thisField.removeClass('empty');
+      changeClasses ('p4', 'empty');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
       playerChange(1);
@@ -278,17 +259,13 @@ $(function(){
   $('.no').on('click', function(b){
     
     if(player == 1 && gameMode == 2) {
-      thisField.removeClass('p1');
-      thisField.removeClass('empty');
-      thisField.addClass('p2');
+      changeClasses ('p2', 'p1', 'empty');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
       playerChange(2);
       
     } else if (player == 2 && gameMode == 2) {
-      thisField.removeClass('p2');
-      thisField.removeClass('empty');
-      thisField.addClass('p1');
+      changeClasses ('p1', 'p2', 'empty');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
       playerChange(1);
@@ -326,38 +303,37 @@ $(function(){
   function gameEnd (){
     var winner = null;
     
+    function fieldWinner (add, remove1, remove2, remove3) {
+      field.removeClass(remove1);
+      field.removeClass(remove2);
+      field.removeClass(remove3);
+      field.addClass(add);
+    }
+    
     if (field.hasClass('empty') == false) {
       
       if ( $('.p1').length > $('.p2').length && $('.p1').length > $('.p3').length && $('.p1').length > $('.p4').length ) {
+        
         winner = "Gracz 1 wygrywa!";
-        field.removeClass('p2');
-        field.removeClass('p3');
-        field.removeClass('p4');
-        field.addClass('p1');
+        fieldWinner('p1', 'p2', 'p3', 'p4');
         playerChange(1);
         
       } else if ( $('.p2').length > $('.p1').length && $('.p2').length > $('.p3').length && $('.p2').length > $('.p4').length ) {
+        
         winner = "Gracz 2 wygrywa!";
-        field.removeClass('p1');
-        field.removeClass('p3');
-        field.removeClass('p4');
-        field.addClass('p2');
+        fieldWinner('p2', 'p1', 'p3', 'p4');
         playerChange(2);
         
       } else if ( $('.p3').length > $('.p2').length && $('.p3').length > $('.p1').length && $('.p3').length > $('.p4').length ) {
+        
         winner = "Gracz 3 wygrywa!";
-        field.removeClass('p2');
-        field.removeClass('p1');
-        field.removeClass('p4');
-        field.addClass('p3');
+        fieldWinner('p3', 'p2', 'p1', 'p4');
         playerChange(3);
         
       } else if ( $('.p4').length > $('.p2').length && $('.p4').length > $('.p3').length && $('.p4').length > $('.p1').length ) {
+        
         winner = "Gracz 4 wygrywa!";
-        field.removeClass('p2');
-        field.removeClass('p3');
-        field.removeClass('p1');
-        field.addClass('p4');
+        fieldWinner('p4', 'p2', 'p3', 'p1');
         playerChange(4);
         
       } else {
