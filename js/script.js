@@ -91,14 +91,16 @@ $(function(){
     showGame();
     gameMode = 4;
   });
-      
-  //guzik zmiany gracza, w razie pomyłki aby można było naprawić błąd
+  
+  //funkcja zmieniająca gracza
   
   function playerChange (playerNum) {
     player = playerNum;
     button.text('Gracz ' + playerNum);
   };
-  
+      
+  //guzik zmiany gracza, w razie pomyłki aby można było naprawić błąd
+    
   button.on('click',function(e){
     
     e.preventDefault();
@@ -234,8 +236,7 @@ $(function(){
       thisField.removeClass('empty');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
-      player = 2;
-      button.text('Gracz 2');
+      playerChange(2);
       gameEnd();
       
     } else if (player == 2 && gameMode == 2) {
@@ -243,8 +244,7 @@ $(function(){
       thisField.removeClass('empty');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
-      player = 1;
-      button.text('Gracz 1');
+      playerChange(1);
       gameEnd();
       
     } else if (player == 2 && gameMode == 3 || player == 2 && gameMode == 4 ) {
@@ -252,8 +252,7 @@ $(function(){
       thisField.removeClass('empty');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
-      player = 3;
-      button.text('Gracz 3');
+      playerChange(3);
       gameEnd();
       
     } else if (player == 3 && gameMode == 3) {
@@ -261,8 +260,7 @@ $(function(){
       thisField.removeClass('empty');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
-      player = 1;
-      button.text('Gracz 1');
+      playerChange(1);
       gameEnd();
       
     } else if (player == 3 && gameMode == 4) {
@@ -270,8 +268,7 @@ $(function(){
       thisField.removeClass('empty');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
-      player = 4;
-      button.text('Gracz 4');
+      playerChange(4);
       gameEnd();
       
     } else if (player == 4) {
@@ -279,8 +276,7 @@ $(function(){
       thisField.removeClass('empty');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
-      player = 1;
-      button.text('Gracz 1');
+      playerChange(1);
       gameEnd();
     }
     
@@ -296,8 +292,7 @@ $(function(){
       thisField.addClass('p2');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
-      player = 2;
-      button.text('Gracz 2');
+      playerChange(2);
       
     } else if (player == 2 && gameMode == 2) {
       thisField.removeClass('p2');
@@ -305,38 +300,32 @@ $(function(){
       thisField.addClass('p1');
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
-      player = 1;
-      button.text('Gracz 1');
+      playerChange(1);
       
     } else if (player == 1) {
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
-      player = 2;
-      button.text('Gracz 2');
+      playerChange(2);
       
     } else if (player == 2) {
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
-      player = 3;
-      button.text('Gracz 3');
+      playerChange(3);
       
     } else if (player == 3 && gameMode == 3) {
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
-      player = 1;
-      button.text('Gracz 1');
+      playerChange(1);
       
     } else if (player == 3 && gameMode == 4) {
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
-      player = 4;
-      button.text('Gracz 4');
+      playerChange(4);
       
     } else if (player == 4) {
       $('.question').css('display', "none");
       $('.questionText').css('display', "none");
-      player = 1;
-      button.text('Gracz 1');
+      playerChange(1);
     }
   });
   
@@ -354,8 +343,7 @@ $(function(){
         field.removeClass('p3');
         field.removeClass('p4');
         field.addClass('p1');
-        player = 1;
-        button.text('Gracz 1');
+        playerChange(1);
         
       } else if ( $('.p2').length > $('.p1').length && $('.p2').length > $('.p3').length && $('.p2').length > $('.p4').length ) {
         winner = "Gracz 2 wygrywa!";
@@ -363,8 +351,7 @@ $(function(){
         field.removeClass('p3');
         field.removeClass('p4');
         field.addClass('p2');
-        player = 2;
-        button.text('Gracz 2');
+        playerChange(2);
         
       } else if ( $('.p3').length > $('.p2').length && $('.p3').length > $('.p1').length && $('.p3').length > $('.p4').length ) {
         winner = "Gracz 3 wygrywa!";
@@ -372,8 +359,7 @@ $(function(){
         field.removeClass('p1');
         field.removeClass('p4');
         field.addClass('p3');
-        player = 3;
-        button.text('Gracz 3');
+        playerChange(3);
         
       } else if ( $('.p4').length > $('.p2').length && $('.p4').length > $('.p3').length && $('.p4').length > $('.p1').length ) {
         winner = "Gracz 4 wygrywa!";
@@ -381,8 +367,7 @@ $(function(){
         field.removeClass('p3');
         field.removeClass('p1');
         field.addClass('p4');
-        player = 4;
-        button.text('Gracz 4');
+        playerChange(4);
         
       } else {
         winner = "Remis!";
