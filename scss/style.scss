@@ -73,25 +73,6 @@ html {
   }
 }
 
-
-.changePlayer {
-  position: absolute;
-  left: 42vw;
-  top: 92vh;
-  height: 40px;
-  line-height: 35px;
-  font-size: 30px;
-  width: 200px;
-  text-align: center;
-  background-color: #789048;
-  box-shadow: 0 0 2px green;
-  color: beige;
-  &:hover {
-    box-shadow: 0 0 15px black;
-    background-color: #604848; 
-  }
-}
-
 .question {
   display: none;
   position: absolute;
@@ -157,6 +138,25 @@ html {
     }
   } 
 }
+
+a {
+  text-decoration: none;
+  .changePlayer {
+    margin: 10px auto;
+    height: 40px;
+    line-height: 35px;
+    font-size: 30px;
+    width: 200px;
+    text-align: center;
+    background-color: #789048;
+    box-shadow: 0 0 2px green;
+    color: beige;
+    &:hover {
+      box-shadow: 0 0 15px black;
+      background-color: #604848; 
+    }
+  }
+}  
 
 
 
