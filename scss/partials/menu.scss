@@ -4,10 +4,13 @@ section {
   height: 94vh;
   .name {
     margin: 0 auto;
-    width: 50vw;
+    width: 400px;
     text-align: center;
     color: #00DFFC;
     font-size: 70px;
+    &.hidden {
+    display: none;
+    }
   }
 }
 

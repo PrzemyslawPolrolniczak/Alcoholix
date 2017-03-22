@@ -1,5 +1,6 @@
 @import "partials/header.scss";
 @import "partials/menu.scss";
+@import "modules/_media.scss";
 
 html {
   font-family: sans-serif;
@@ -156,7 +157,5 @@ a {
       background-color: #604848; 
     }
   }
-}  
-
-
+} 
 
