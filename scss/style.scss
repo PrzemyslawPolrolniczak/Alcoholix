@@ -5,25 +5,6 @@ html {
   font-family: sans-serif;
 }
 
-.col-1 {
-  color: #604848;
-  background-color: #F0F0D8;
-  height: 100%;
-  width: 10%;
-  border: 1px dashed #607848;
-  display: inline-block;
-  font-weight: 900;
-}
-
-.board {
-  position: relative;
-  margin: 0 auto;
-  width: 1200px;
-  height: 500px;
-  border: 2px solid #607848;
-}
-
-
 .game {
   background-color: #C0D860;
   .nameGame {
@@ -38,36 +19,60 @@ html {
   }
 }
 
-.row {
-  display: flex;
-  width: 100%;
-  height: 25%;
+.board {
+  position: relative;
+  margin: 0 auto;
+  width: 1200px;
+  height: 500px;
+  border: 2px solid #607848;
+  .row {
+    display: flex;
+    width: 100%;
+    height: 25%;
+  }
 }
 
-.p1, .p2, .p3, .p4 {
-  color: beige;
+.col-1 {
+  color: #604848;
+  background-color: #F0F0D8;
+  height: 100%;
+  width: 10%;
+  border: 1px dashed #607848;
+  display: inline-block;
+  font-weight: 900;
+  &:hover {
+    box-shadow: 0 0 10px black inset;
+  }
+  &.p1Chose:hover {
+    background-color: #FFABAB;
+  }
+  &.p2Chose:hover {
+    background-color: #94CED6;
+  }
+  &.p3Chose:hover {
+    background-color: #FAFA82;
+  }
+  &.p4Chose:hover {
+    background-color: #8AFF93;
+  }
+  &.p1, &.p2, &.p3, &.p4 {
+    color: beige;
+  }
+  &.p1 {
+    background-color: #FF5959;
+  }
+  &.p2 {
+    background-color: #00B4CC;
+  }
+  &.p3 {
+    color: gray;
+    background-color: #F2F25E;
+  }
+  &.p4 {
+    background-color: #56F063;
+  }
 }
 
-.p2 {
-  background-color: #00B4CC;
-}
-
-.p1 {
-  background-color: #FF5959;
-}
-
-.p3 {
-  color: gray;
-  background-color: #F2F25E;
-}
-
-.p4 {
-  background-color: #56F063;
-}
-
-.col-1:hover {
-  box-shadow: 0 0 10px black inset;
-}
 
 .changePlayer {
   position: absolute;
@@ -81,27 +86,10 @@ html {
   background-color: #789048;
   box-shadow: 0 0 2px green;
   color: beige;
-}
-
-.changePlayer:hover {
-  box-shadow: 0 0 15px black;
-  background-color: #604848;
-}
-
-.p1Chose:hover {
-  background-color: #FFABAB;
-}
-
-.p2Chose:hover {
-  background-color: #94CED6;
-}
-
-.p3Chose:hover {
-  background-color: #FAFA82;
-}
-
-.p4Chose:hover {
-  background-color: #8AFF93;
+  &:hover {
+    box-shadow: 0 0 15px black;
+    background-color: #604848; 
+  }
 }
 
 .question {
@@ -129,50 +117,45 @@ html {
   left: 118px;
   top: 50px;
   background-color: #604848;
-}
-
-.yes, .no {
-  border: 2px solid black;
-  color: beige;
-  font-size: 30px;
-  line-height: 45px;
-  background-color: #789048;
-  left: 250px;
-  position: absolute;
-  top: 330px;
-  height: 50px;
-  width: 200px;
-  text-align: center;
-}
-
-.no {
-  left: 500px;
-} 
-
-.yes:hover {
-  border: 2px solid green;
-  box-shadow: 0 0 10px green;
-  background-color: darkgreen;
-}
-
-.no:hover {
-  border: 2px solid red;
-  box-shadow: 0 0 10px red;
-  background-color: firebrick;
-}
-
-.questionContent {
-  font-family: serif;
-  position: absolute;
-  height: 300px;
-  width: 800px;
-  left: 80px;
-  top: 20px;
-  font-size: 44px;
-  text-align: center;
-  a {
-    color: beige;
+  .questionContent {
+    font-family: serif;
+    position: absolute;
+    height: 300px;
+    width: 800px;
+    left: 80px;
+    top: 20px;
+    font-size: 44px;
+    text-align: center;
+    a {
+      color: beige;
+    }
   }
+  .yes, .no {
+    border: 2px solid black;
+    color: beige;
+    font-size: 30px;
+    line-height: 45px;
+    background-color: #789048;
+    left: 250px;
+    position: absolute;
+    top: 330px;
+    height: 50px;
+    width: 200px;
+    text-align: center;
+    &:hover {
+      border: 2px solid green;
+      box-shadow: 0 0 10px green;
+      background-color: darkgreen;
+    }
+  }
+  .no {
+    left: 500px;
+    &:hover {
+      border: 2px solid red;
+      box-shadow: 0 0 10px red;
+      background-color: firebrick;
+    }
+  } 
 }
 
 
