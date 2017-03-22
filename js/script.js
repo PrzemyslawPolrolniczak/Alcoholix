@@ -328,4 +328,6 @@ $(function(){
 //dodać przycisk powrotu do wyboru ilości graczy
 //dodać responsywność (breakpointy)
 //dodać licznik wypitego alko i ilość punktów
+//dodać jakiś font
+//dodać nowe pytania
   
