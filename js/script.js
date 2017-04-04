@@ -330,4 +330,3 @@ $(function(){
 //dodać licznik wypitego alko i ilość punktów
 //dodać jakiś font
 //dodać nowe pytania
-  
