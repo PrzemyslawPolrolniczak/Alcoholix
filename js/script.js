@@ -19,16 +19,26 @@ $(function(){
     triangle.text(text1);}).animate({'opacity': 1}, 1000);
   }
   
+    if ($(window).width() < 746 ) {
+    animateMenu(tr1,"rectangle", "triangle1", "-180px", "1 Gracz");
+    animateMenu(tr2,"rectangle altBackground", "triangle2", "187px", "2 Graczy");
+    animateMenu(tr3,"rectangle altBackground", "triangle3", "-180px", "3 Graczy");
+    animateMenu(tr4,"rectangle", "triangle4", "187px", "4 Graczy");
+    tr2.css("background-color", "#00B4CC");
+    tr4.css("background-color", "#00B4CC");
+  };
+  
+  
   tr1.one("mouseover", function(){
     animateMenu(tr1,"rectangle", "triangle1", "-180px", "1 Gracz")
   });
   
   tr2.one("mouseover",function(){
-    animateMenu(tr2,"rectangle altBackground", "triangle2", "187px", "2 Graczy")
+    animateMenu(tr2,"rectangle", "triangle2", "187px", "2 Graczy")
   });
   
   tr3.one("mouseover",function(){
-    animateMenu(tr3,"rectangle altBackground", "triangle3", "-180px", "3 Graczy")
+    animateMenu(tr3,"rectangle", "triangle3", "-180px", "3 Graczy")
     tr3.css("top", "187px");
   });
   
