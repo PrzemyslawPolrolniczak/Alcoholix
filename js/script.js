@@ -19,7 +19,9 @@ $(function(){
     triangle.text(text1);}).animate({'opacity': 1}, 1000);
   }
   
-    if ($(window).width() < 746 ) {
+  //Responsywność dla urządzeń dotykowych
+  
+  if ($(window).width() < 746 ) {
     animateMenu(tr1,"rectangle", "triangle1", "-180px", "1 Gracz");
     animateMenu(tr2,"rectangle altBackground", "triangle2", "187px", "2 Graczy");
     animateMenu(tr3,"rectangle altBackground", "triangle3", "-180px", "3 Graczy");
@@ -28,6 +30,7 @@ $(function(){
     tr4.css("background-color", "#00B4CC");
   };
   
+  //Animacje po najechaniu elementów menu
   
   tr1.one("mouseover", function(){
     animateMenu(tr1,"rectangle", "triangle1", "-180px", "1 Gracz")
